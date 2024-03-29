@@ -1,13 +1,13 @@
-import React, { Component } from "react"
-import "./App.css"
-import Navigation from "./components/Navigation/Navigation"
-import Logo from "./components/Logo/Logo"
-import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm"
-import Rank from "./components/Rank/Rank"
-import FaceRecognition from "./components/FaceRecognition/FaceRecognition"
-import ParticlesBg from "particles-bg"
-import SignIn from "./components/SignIn/SignIn"
-import Register from "./components/Register/Register"
+import React, { Component } from "react";
+import "./App.css";
+import Navigation from "./components/Navigation/Navigation";
+import Logo from "./components/Logo/Logo";
+import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
+import Rank from "./components/Rank/Rank";
+import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
+import ParticlesBg from "particles-bg";
+import SignIn from "./components/SignIn/SignIn";
+import Register from "./components/Register/Register";
 
 const initialState = {
   input: "",
@@ -22,12 +22,12 @@ const initialState = {
     entries: 0,
     joined: "",
   },
-}
+};
 
 class App extends Component {
   constructor() {
-    super()
-    this.state = initialState
+    super();
+    this.state = initialState;
   }
 
   loadUser = (data) => {
@@ -39,47 +39,49 @@ class App extends Component {
         entries: data.entries,
         joined: data.joined,
       },
-    })
-  }
+    });
+  };
 
   componentDidMount() {
-    fetch("https://smart-brain-api-gold.vercel.app/").then((response) => response.json())
+    fetch("https://smart-brain-api-gold.vercel.app/").then((response) =>
+      response.json()
+    );
   }
 
   onRouteChange = (route) => {
     if (route === "signout") {
-      this.setState(initialState)
+      this.setState(initialState);
     } else if (route === "home") {
-      this.setState({ isSignedIn: true })
+      this.setState({ isSignedIn: true });
     }
-    this.setState({ route: route })
-  }
+    this.setState({ route: route });
+  };
 
   calculateFaceLocation = (data) => {
-    const image = document.getElementById("inputimage")
-    const width = Number(image.width)
-    const height = Number(image.height)
+    const image = document.getElementById("inputimage");
+    const width = Number(image.width);
+    const height = Number(image.height);
     return JSON.parse(data, null, 2).outputs[0].data.regions.map((face) => {
-      const clarifaiFace = face.region_info.bounding_box
+      const clarifaiFace = face.region_info.bounding_box;
       return {
         leftCol: clarifaiFace.left_col * width,
         topRow: clarifaiFace.top_row * height,
         rightCol: width - clarifaiFace.right_col * width,
         bottomRow: height - clarifaiFace.bottom_row * height,
-      }
-    })
-  }
+      };
+    });
+  };
 
   displayFaceBox = (boxes) => {
-    this.setState({ boxes: boxes })
-  }
+    this.setState({ boxes: boxes });
+  };
 
   onInputChange = (event) => {
-    this.setState({ input: event.target.value })
-  }
+    this.setState({ input: event.target.value });
+  };
 
   onSubmit = () => {
-    this.setState({ imageUrl: this.state.input })
+    this.setState({ imageUrl: this.state.input });
 
     fetch("https://smart-brain-api-gold.vercel.app/imageurl", {
       method: "POST",
@@ -90,8 +92,8 @@ class App extends Component {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result)
-        this.displayFaceBox(this.calculateFaceLocation(result))
+        console.log(result);
+        this.displayFaceBox(this.calculateFaceLocation(result));
         if (result) {
           fetch("https://smart-brain-api-gold.vercel.app/image", {
             method: "PUT",
@@ -102,15 +104,15 @@ class App extends Component {
           })
             .then((result) => result.json())
             .then((count) => {
-              this.setState(Object.assign(this.state.user, { entries: count }))
-            })
+              this.setState(Object.assign(this.state.user, { entries: count }));
+            });
         }
       })
-      .catch((error) => console.log("error", error))
-  }
+      .catch((error) => console.log("error", error));
+  };
 
   render() {
-    const { isSignedIn, imageUrl, route, boxes } = this.state
+    const { isSignedIn, imageUrl, route, boxes } = this.state;
     return (
       <div className="App">
         <ParticlesBg color="#FFFFFF" num={100} type="cobweb" bg={true} />
@@ -140,8 +142,8 @@ class App extends Component {
           />
         )}
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
