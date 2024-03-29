@@ -1,6 +1,6 @@
 # Smart Brain
 
-[Smart Brain](https://tjrelly.github.io/smart-brain/) is a web app that uses the Clarifai API to locate a face in a picture. This face-recognition app uses the following technologies:
+[Smart Brain](https://smart-brain-chi.vercel.app/) is a web app that uses the Clarifai API to locate a face in a picture. This face-recognition app uses the following technologies:
 
 - [MERN stack](https://www.mongodb.com/mern-stack): Express JS, React JS, and Node JS
 - [Node JS](https://nodejs.org/en/): for back-end server - code posted here: [Smart-Brain-Api](https://github.com/TJRelly/smart-brain-api)
@@ -24,7 +24,7 @@ Throughout this project, I have demonstrated my resilience, adaptability, and re
 
 ### Website Deployed
 
-You can find the project website here: [Live Site](https://tjrelly.github.io/smart-brain/). Try the demo account.
+You can find the project website here: [Live Site](https://smart-brain-chi.vercel.app/). Try the demo account.
 
 ---
 ### Screenshots
@@ -41,5 +41,5 @@ You can find the project website here: [Live Site](https://tjrelly.github.io/sma
 
 ### Website Deployed
 
-You can find the project website here: [Live Site](https://tjrelly.github.io/smart-brain/)
+You can find the project website here: [Live Site](https://smart-brain-chi.vercel.app/)
 
