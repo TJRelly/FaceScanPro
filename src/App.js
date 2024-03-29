@@ -43,7 +43,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch("https://smart-brain-api-gold.vercel.app/").then((response) =>
+    fetch("http://localhost:3000/").then((response) =>
       response.json()
     );
   }
@@ -83,7 +83,7 @@ class App extends Component {
   onSubmit = () => {
     this.setState({ imageUrl: this.state.input });
 
-    fetch("https://smart-brain-api-gold.vercel.app/imageurl", {
+    fetch("http://localhost:3000/imageurl", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -95,7 +95,7 @@ class App extends Component {
         console.log(result);
         this.displayFaceBox(this.calculateFaceLocation(result));
         if (result) {
-          fetch("https://smart-brain-api-gold.vercel.app/image", {
+          fetch("http://localhost:3000/image", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

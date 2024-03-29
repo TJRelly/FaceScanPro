@@ -27,7 +27,7 @@ class Register extends React.Component {
 
   onSubmitSignIn = () => {
     this.setState({ loading: true })
-    fetch("https://smart-brain-api-gold.vercel.app/register", {
+    fetch("http://localhost:3000/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
