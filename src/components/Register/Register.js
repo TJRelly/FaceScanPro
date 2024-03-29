@@ -79,6 +79,7 @@ class Register extends React.Component {
                 name="user-id"
                 placeholder="Name"
                 onChange={this.onNameChange}
+                autoComplete="on"
               />
 
               <input
@@ -87,6 +88,7 @@ class Register extends React.Component {
                 name="email"
                 placeholder="Email"
                 onChange={this.onEmailChange}
+                autoComplete="on"
               />
 
               <input
@@ -95,6 +97,7 @@ class Register extends React.Component {
                 name="password"
                 placeholder="Password"
                 onChange={this.onPasswordChange}
+                autoComplete="on"
               />
 
               <button

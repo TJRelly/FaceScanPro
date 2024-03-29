@@ -23,6 +23,7 @@ const ImageLinkForm = ({ onInputChange, onSubmit }) => {
             placeholder="Copy image address here..."
             className="p-2 mr-1 text-gray-600 w-3/4"
             onChange={onInputChange}
+            autoComplete="on"
           />
           {/* Detect Button */}
           <button

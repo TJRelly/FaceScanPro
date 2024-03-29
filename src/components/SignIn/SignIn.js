@@ -106,6 +106,7 @@ class SignIn extends React.Component {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="email"
                 placeholder="Email"
+                autoComplete="on"
               />
 
               <input
@@ -114,6 +115,7 @@ class SignIn extends React.Component {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="password"
                 placeholder="Password"
+                autoComplete="on"
               />
 
               <button
